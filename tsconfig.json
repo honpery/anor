@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "module": "umd",
+        "target": "es6",
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "typeRoots": [
+            "node_modules/@types"
+        ],
+        "types": []
+    },
+    "include": [
+        "./src"
+    ],
+    "files": [
+        "*"
+    ],
+    "exclude": [
+        "node_modules"
+    ]
+}
