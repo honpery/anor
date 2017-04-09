@@ -1,29 +1,18 @@
 {
-  "dependencies": {},
+  "dependencies": {
+    "@angular/common": "^4.0.1",
+    "@angular/core": "^4.0.1",
+    "@angular/forms": "^4.0.1",
+    "rxjs": "^5.3.0"
+  },
   "name": "anor",
   "description": "The angular 2 rich text editor.",
   "version": "0.0.1",
-  "main": "./dist/anor.min.js",
+  "main": "./dist/anor.js",
   "directories": {
     "test": "test"
   },
-  "devDependencies": {
-    "angular-template-loader": "^0.0.2",
-    "awesome-typescript-loader": "^3.1.2",
-    "extract-text-webpack-plugin": "^2.1.0",
-    "html-webpack-plugin": "^2.28.0",
-    "typescript": "^2.2.2",
-    "webpack": "^2.3.3",
-    "webpack-dev-server": "^2.4.2",
-    "webpack-merge": "^4.1.0",
-    "angular2-template-loader": "^0.6.2",
-    "html-loader": "^0.4.5"
-  },
-  "scripts": {
-    "dev": "NODE_ENV=dev ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "prod": "NODE_ENV=prod ./node_modules/webpack/bin/webpack.js",
-    "test": "NODE_ENV=test echo test"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/honpery/anor.git"

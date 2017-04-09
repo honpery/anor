@@ -4,23 +4,26 @@
 const path = require('path');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-const root = exports.root = (...paths) => path.join(__dirname, '..', ...paths);
+const siteRoot = exports.siteRoot = (...paths) => path.join(__dirname, '..', ...paths);
+
+const prod = process.env.NODE_ENV === 'prod';
 
 exports.config = {
 
     entry: {
-        anor: root('src/index.ts')
+        // anor: siteRoot('src/index.ts')
     },
 
     output: {
-        path: root('dist'),
+        path: siteRoot('dist'),
         filename: '[name].js'
     },
 
     resolve: {
         extensions: ['.ts', '.js', '.scss'],
-        modules: [root('node_modules')]
+        modules: [siteRoot('node_modules')]
     },
+
     module: {
         loaders: [
             {
@@ -28,10 +31,16 @@ exports.config = {
                 loaders: [
                     'awesome-typescript-loader',
                     'angular2-template-loader'
-                ]
+                ].concat(prod ? [] : '@angularclass/hmr-loader')
             },
             {
                 test: /\.scss$/,
+                use: [
+                    'to-string-loader', 'css-loader', 'sass-loader'
+                ]
+            },
+            {
+                test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
                     use: "css-loader!sass-loader",
@@ -42,7 +51,7 @@ exports.config = {
     },
 
     plugins: [
-        new ExtractTextPlugin(".css")
+        new ExtractTextPlugin("app.css")
     ],
 
     watch: true
